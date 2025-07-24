@@ -419,6 +419,7 @@ spec:
 - **Technical Lead**: [tiatheone@protonmail.com](mailto:tiatheone@protonmail.com)
 - **DevOps Engineer**: [garrett@sxc.codes](mailto:garrett@sxc.codes)
 - **Product Manager**: [garrett.dillman@gmail.com](mailto:garrett.dillman@gmail.com)
+- **Business Development**: [rohan_brown_is@hotmail.com](mailto:rohan_brown_is@hotmail.com)
 
 ### **Enterprise Support**
 - **Documentation**: [Platform Wiki](./docs/)
