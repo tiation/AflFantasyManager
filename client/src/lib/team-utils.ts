@@ -10,7 +10,7 @@ export const getTeamGuernsey = (teamName: string): string => {
     'Fremantle': '/guernseys/fremantle.png',
     'Geelong': '/guernseys/geelong.png',
     'Gold Coast': '/guernseys/gold_coast.png',
-    'GWS': '/guernseys/gws.png',
+    'Giant Western Sydney': '/guernseys/gws.png',
     'Hawthorn': '/guernseys/hawthorn.png',
     'Melbourne': '/guernseys/melbourne.png',
     'North Melbourne': '/guernseys/north_melbourne.png',
