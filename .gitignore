@@ -146,3 +146,5 @@ deployment_package_*.tar.gz
 *.csv
 *.xlsx
 *.json.bak
+# Local Netlify folder
+.netlify
