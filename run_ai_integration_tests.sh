@@ -92,8 +92,10 @@ install_python_deps() {
     # Check if requests is available
     python3 -c "import requests" 2>/dev/null || {
         echo -e "${YELLOW}   Installing requests library...${NC}"
-        pip3 install requests --user || {
+        pip3 install requests --user 2>/dev/null || \
+        pip3 install requests --break-system-packages 2>/dev/null || {
             echo -e "${RED}❌ Failed to install requests${NC}"
+            echo -e "${YELLOW}   You may need to install requests manually${NC}"
             exit 1
         }
     }

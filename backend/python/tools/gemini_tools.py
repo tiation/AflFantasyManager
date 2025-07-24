@@ -269,7 +269,7 @@ class GeminiTools:
         Current Team:
         {json.dumps(current_team, indent=2)}
         
-        Available Budget: ${budget:,.0f} if budget else "Not specified"}
+        Available Budget: ${budget:,.0f}" if budget else "Not specified"
         
         Please provide a JSON response with this structure:
         {{
