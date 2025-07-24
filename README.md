@@ -29,10 +29,13 @@ graph TB
     A[React + TypeScript Frontend] --> B[Express.js API Gateway]
     B --> C[PostgreSQL + Drizzle ORM]
     B --> D[Python ML Engine]
+    B --> I[Google Gemini AI]
+    B --> J[OpenAI Fallback]
     D --> E[Multi-Source Data Pipeline]
     E --> F[DFS Australia API]
     E --> G[FootyWire Scraper]
     E --> H[AFL Fantasy Live]
+    I -.-> J[Automatic Fallback]
 ```
 
 | **Layer** | **Technology** | **Purpose** |
@@ -116,6 +119,112 @@ npm run build
 
 # Start production server
 npm start
+```
+
+---
+
+## 🤖 Gemini AI Integration
+
+### **Intelligent AI Analytics with Automatic Fallback**
+
+The AFL Fantasy Platform integrates Google Gemini AI to provide enhanced analytics and recommendations. The system implements intelligent fallback logic to ensure continuous service availability.
+
+### **Environment Configuration**
+
+To enable Gemini AI features, configure the following environment variable:
+
+```bash
+# Required for Gemini AI integration
+GEMINI_API_KEY=your_google_gemini_api_key_here
+
+# Optional: OpenAI fallback (recommended)
+OPENAI_API_KEY=your_openai_api_key_here
+```
+
+### **Fallback Logic Architecture**
+
+The platform implements a robust 5-step fallback mechanism:
+
+1. **API Key Validation**: Checks for `GEMINI_API_KEY` environment variable
+2. **Module Verification**: Confirms `gemini_tools.py` module availability
+3. **Primary API Call**: Attempts Gemini API request with error handling
+4. **Automatic Fallback**: Falls back to OpenAI/Python implementation on failure
+5. **Error Logging**: Comprehensive logging for debugging and monitoring
+
+```typescript
+// Example fallback implementation
+async function executeAIToolWithFallback(
+  geminiFunction: string, 
+  fallbackFunction: string
+): Promise<any> {
+  try {
+    if (await isGeminiAvailable()) {
+      console.log(`Attempting Gemini for ${geminiFunction}`);
+      const result = await callGeminiAPI(geminiFunction);
+      if (result.status === 'success') return result;
+    }
+    
+    console.log(`Falling back to ${fallbackFunction}`);
+    return await executeOpenAITool(fallbackFunction);
+  } catch (error) {
+    return handleFallbackError(error);
+  }
+}
+```
+
+### **Gemini-Enhanced Features**
+
+| **Feature** | **Gemini Function** | **Fallback** | **Description** |
+|-------------|---------------------|--------------|------------------|
+| **Trade Analysis** | `get_gemini_trade_analysis` | `ai_trade_suggester` | AI-powered trade recommendations |
+| **Captain Selection** | `get_gemini_captain_advice` | `ai_captain_advisor` | Intelligent captaincy recommendations |
+| **Team Structure** | `get_gemini_team_analysis` | `team_structure_analyzer` | Team composition optimization |
+| **Breakout Predictions** | `get_gemini_breakout_predictions` | *Gemini-only* | Advanced player breakout analysis |
+| **Injury Analysis** | `get_gemini_injury_analysis` | *Gemini-only* | Fantasy impact of injuries |
+
+### **API Health Monitoring**
+
+The platform includes built-in health checks for AI services:
+
+```bash
+# Test Gemini connectivity
+curl -X GET http://localhost:5173/api/ai/test-gemini
+
+# Response example
+{
+  "status": "success",
+  "message": "Gemini API connection successful",
+  "model": "gemini-1.5-flash",
+  "fallback_available": true
+}
+```
+
+### **DevOps Integration**
+
+**Kubernetes Secrets Configuration:**
+```yaml
+apiVersion: v1
+kind: Secret
+metadata:
+  name: afl-fantasy-secrets
+type: Opaque
+stringData:
+  GEMINI_API_KEY: "your-gemini-api-key"
+  OPENAI_API_KEY: "your-openai-fallback-key"
+```
+
+**Docker Environment Variables:**
+```dockerfile
+ENV GEMINI_API_KEY=${GEMINI_API_KEY}
+ENV OPENAI_API_KEY=${OPENAI_API_KEY}
+ENV NODE_ENV=production
+```
+
+**CI/CD Environment Validation:**
+```bash
+# Pre-deployment health checks
+npm run test:ai-integration
+npm run validate:api-keys
 ```
 
 ---
