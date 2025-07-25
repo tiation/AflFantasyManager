@@ -181,7 +181,7 @@ async function scrapeFootyWireBreakevens() {
           }
           
           // Extract breakeven
-          const beText = cells[beIdx].textContent.trim().replace(/[^0-9\-]/g, '');
+          const beText = cells[beIdx].textContent.trim().replace(/[^0-9-]/g, '');
           
           if (beText) {
             // Convert breakeven to number, handling negative values

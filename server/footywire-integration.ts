@@ -37,7 +37,7 @@ export const normalizeName = (name: string): string => {
   if (!name) return '';
   
   // Convert to lowercase
-  let normalized = name.toLowerCase().trim();
+  const normalized = name.toLowerCase().trim();
   
   // Handle initial format (e.g., "M. Bontempelli")
   const initialFormat = normalized.match(/^([a-z])\.\s+([a-z]+)$/i);

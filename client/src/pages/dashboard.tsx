@@ -1,8 +1,12 @@
 import { useEffect, useState } from "react";
 import { useQuery } from "@tanstack/react-query";
+import { Link } from "wouter";
 import ScoreCard from "@/components/dashboard/score-card";
 import PerformanceChart, { RoundData } from "@/components/dashboard/performance-chart";
 import TeamStructure from "@/components/dashboard/team-structure";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { ExternalLink, HelpCircle, FileText, Book, Shield, Scale, Mail } from "lucide-react";
 
 import { 
   formatCurrency, 
@@ -253,6 +257,62 @@ export default function Dashboard() {
         }}
         teamValue="$21.8M" // Fixed to match screenshots
       />
+
+      {/* Quick Links Section */}
+      <Card className="bg-gray-800 border-gray-700 mt-6">
+        <CardHeader>
+          <CardTitle className="text-white flex items-center gap-2">
+            <ExternalLink className="h-5 w-5" />
+            Quick Links
+          </CardTitle>
+        </CardHeader>
+        <CardContent>
+          <div className="grid gap-3 md:grid-cols-2 lg:grid-cols-4">
+            <Link href="/features">
+              <Button variant="outline" className="w-full justify-start border-gray-600 text-white hover:bg-gray-700">
+                <Book className="h-4 w-4 mr-2" />
+                Features
+              </Button>
+            </Link>
+            <Link href="/support">
+              <Button variant="outline" className="w-full justify-start border-gray-600 text-white hover:bg-gray-700">
+                <HelpCircle className="h-4 w-4 mr-2" />
+                Support
+              </Button>
+            </Link>
+            <Link href="/release-notes">
+              <Button variant="outline" className="w-full justify-start border-gray-600 text-white hover:bg-gray-700">
+                <FileText className="h-4 w-4 mr-2" />
+                Release Notes
+              </Button>
+            </Link>
+            <Link href="/guild-codex">
+              <Button variant="outline" className="w-full justify-start border-gray-600 text-white hover:bg-gray-700">
+                <Book className="h-4 w-4 mr-2" />
+                Guild Codex
+              </Button>
+            </Link>
+            <Link href="/privacy-policy">
+              <Button variant="outline" className="w-full justify-start border-gray-600 text-white hover:bg-gray-700">
+                <Shield className="h-4 w-4 mr-2" />
+                Privacy Policy
+              </Button>
+            </Link>
+            <Link href="/terms-of-service">
+              <Button variant="outline" className="w-full justify-start border-gray-600 text-white hover:bg-gray-700">
+                <Scale className="h-4 w-4 mr-2" />
+                Terms of Service
+              </Button>
+            </Link>
+            <Link href="/contact-us">
+              <Button variant="outline" className="w-full justify-start border-gray-600 text-white hover:bg-gray-700">
+                <Mail className="h-4 w-4 mr-2" />
+                Contact Us
+              </Button>
+            </Link>
+          </div>
+        </CardContent>
+      </Card>
     </div>
   );
 }

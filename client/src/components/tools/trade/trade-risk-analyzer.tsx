@@ -73,7 +73,7 @@ export function TradeRiskAnalyzer() {
     }
     
     // Generate recommendations
-    let recommendations = [];
+    const recommendations = [];
     
     if (burnRate > 20) {
       recommendations.push("Reduce your trade frequency to preserve trades for critical situations.");

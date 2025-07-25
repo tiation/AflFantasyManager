@@ -75,7 +75,7 @@ function parseCSV(filePath) {
  */
 function parsePlayerNameAndPosition(playerField) {
   const parts = playerField.split(' ');
-  let position = parts[parts.length - 1];
+  const position = parts[parts.length - 1];
   
   // Check if the last part is a position
   if (positionMap[position]) {

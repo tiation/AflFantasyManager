@@ -4,6 +4,10 @@ import { setupVite, serveStatic, log } from "./vite";
 import { metricsMiddleware, healthCheck, metricsEndpoint } from "./middleware/metrics.js";
 import path from "path";
 import { fileURLToPath } from "url";
+import dotenv from "dotenv";
+
+// Load environment variables
+dotenv.config();
 
 // ✅ Fix __dirname for ES module scope
 const __filename = fileURLToPath(import.meta.url);

@@ -223,7 +223,7 @@ export async function gemini_breakout_predictions(playerData?: any[], seasonCont
       console.log('Using Gemini for breakout predictions');
       
       const geminiCommand = params 
-        ? `python3 -c "import sys; sys.path.append('backend/python/tools'); import gemini_tools; import json; result = gemini_tools.get_gemini_breakout_predictions(${JSON.stringify(params).replace(/"/g, '\"')}); print(json.dumps(result))"`
+        ? `python3 -c "import sys; sys.path.append('backend/python/tools'); import gemini_tools; import json; result = gemini_tools.get_gemini_breakout_predictions(${JSON.stringify(params).replace(/"/g, '\\"')}); print(json.dumps(result))"`
         : `python3 -c "import sys; sys.path.append('backend/python/tools'); import gemini_tools; import json; result = gemini_tools.get_gemini_breakout_predictions([], {}); print(json.dumps(result))"`;
       
       const { stdout, stderr } = await execPromise(geminiCommand);
@@ -265,7 +265,7 @@ export async function gemini_injury_analysis(injuryReports?: any[], affectedPlay
       console.log('Using Gemini for injury impact analysis');
       
       const geminiCommand = params 
-        ? `python3 -c "import sys; sys.path.append('backend/python/tools'); import gemini_tools; import json; result = gemini_tools.get_gemini_injury_analysis(${JSON.stringify(params).replace(/"/g, '\"')}); print(json.dumps(result))"`
+        ? `python3 -c "import sys; sys.path.append('backend/python/tools'); import gemini_tools; import json; result = gemini_tools.get_gemini_injury_analysis(${JSON.stringify(params).replace(/"/g, '\\"')}); print(json.dumps(result))"`
         : `python3 -c "import sys; sys.path.append('backend/python/tools'); import gemini_tools; import json; result = gemini_tools.get_gemini_injury_analysis([], []); print(json.dumps(result))"`;
       
       const { stdout, stderr } = await execPromise(geminiCommand);

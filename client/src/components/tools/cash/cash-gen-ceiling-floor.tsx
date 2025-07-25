@@ -34,8 +34,8 @@ export function CashGenCeilingFloor() {
   const magicNumber = 9750;
 
   const simulatePrices = (scoreSet: number[]) => {
-    let prices: number[] = [];
-    let scores = [...last3];
+    const prices: number[] = [];
+    const scores = [...last3];
     for (let i = 0; i < 3; i++) {
       scores.shift();
       scores.push(scoreSet[i]);

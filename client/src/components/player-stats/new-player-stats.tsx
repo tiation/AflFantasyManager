@@ -469,7 +469,7 @@ export default function NewPlayerStats({
         case 'dvpR21':
         case 'dvpR22':
         case 'dvpR23':
-        case 'dvpR24':
+        case 'dvpR24': {
           const round = sortBy.slice(-2);
           const primaryPos = getPlayerPrimaryPosition(a.position);
           const fixturesA = fixtureQueries.data?.get(`${a.team}|${primaryPos}`);
@@ -481,12 +481,14 @@ export default function NewPlayerStats({
           aValue = roundFixtureA?.difficulty ?? 999;
           bValue = roundFixtureB?.difficulty ?? 999;
           break;
-        default:
+        }
+        default: {
           // For other stats, try to get numeric values
           const aVal = getPlayerStatValue(a, sortBy);
           const bVal = getPlayerStatValue(b, sortBy);
           aValue = parseFloat(aVal.replace(/[^0-9.-]/g, '')) || 0;
           bValue = parseFloat(bVal.replace(/[^0-9.-]/g, '')) || 0;
+        }
       }
 
       // Handle null/undefined values

@@ -458,7 +458,7 @@ export function CashCowTracker() {
 
   // Filter and sort players
   const filteredPlayers = useMemo(() => {
-    let filtered = rookieData.filter(player => {
+    const filtered = rookieData.filter(player => {
       // Search filter - allow single character searches
       if (searchQuery.trim().length > 0 && !player.name.toLowerCase().includes(searchQuery.toLowerCase().trim())) {
         return false;

@@ -79,7 +79,7 @@ export default function EnhancedStatsTable({
   // Generic handle sort function
   const handleSort = (field: string) => {
     switch (category) {
-      case 'basic':
+      case 'basic': {
         const basicField = field as BasicSortField;
         if (basicSortField === basicField) {
           if (basicSortDirection === "asc") {
@@ -93,8 +93,9 @@ export default function EnhancedStatsTable({
           setBasicSortDirection("asc");
         }
         break;
+      }
         
-      case 'fantasy':
+      case 'fantasy': {
         const fantasyField = field as FantasySortField;
         if (fantasySortField === fantasyField) {
           if (fantasySortDirection === "asc") {
@@ -108,8 +109,9 @@ export default function EnhancedStatsTable({
           setFantasySortDirection("asc");
         }
         break;
+      }
         
-      case 'value':
+      case 'value': {
         const valueField = field as ValueSortField;
         if (valueSortField === valueField) {
           if (valueSortDirection === "asc") {
@@ -123,8 +125,9 @@ export default function EnhancedStatsTable({
           setValueSortDirection("asc");
         }
         break;
+      }
         
-      case 'consistency':
+      case 'consistency': {
         const consistencyField = field as ConsistencySortField;
         if (consistencySortField === consistencyField) {
           if (consistencySortDirection === "asc") {
@@ -138,8 +141,9 @@ export default function EnhancedStatsTable({
           setConsistencySortDirection("asc");
         }
         break;
+      }
         
-      case 'opposition':
+      case 'opposition': {
         const oppositionField = field as OppositionSortField;
         if (oppositionSortField === oppositionField) {
           if (oppositionSortDirection === "asc") {
@@ -153,8 +157,9 @@ export default function EnhancedStatsTable({
           setOppositionSortDirection("asc");
         }
         break;
+      }
         
-      case 'venue':
+      case 'venue': {
         const venueField = field as VenueSortField;
         if (venueSortField === venueField) {
           if (venueSortDirection === "asc") {
@@ -168,6 +173,7 @@ export default function EnhancedStatsTable({
           setVenueSortDirection("asc");
         }
         break;
+      }
     }
   };
   
