@@ -11,6 +11,9 @@ This documentation directory contains comprehensive guides, API documentation, a
 - `DEPLOYMENT_VERIFICATION.md` - Production deployment verification checklist
 - `QUICK_START_GUIDE.md` - Developer onboarding guide
 - `finding-apis-guide.md` - Guide for discovering and integrating external APIs
+- `SECURITY_DEVOPS.md` - Security and DevOps best practices
+- `CICD_SETUP.md` - CI/CD pipeline configuration and monitoring
+- `GEMINI_INTEGRATION.md` - Google Gemini AI integration guide
 
 ### Project Documentation (`project-docs/`)
 - Architecture diagrams and technical specifications
@@ -53,6 +56,9 @@ This documentation follows **Tiation's** enterprise-grade development standards:
 | [API Documentation](./api.md) | Complete API reference | Developers, Integrators |
 | [Deployment Guide](./DEPLOYMENT_VERIFICATION.md) | Production deployment | DevOps, SRE |
 | [Quick Start](./QUICK_START_GUIDE.md) | Developer onboarding | New developers |
+| [Security & DevOps](./SECURITY_DEVOPS.md) | Security best practices | DevOps, Security |
+| [CI/CD Setup](./CICD_SETUP.md) | Pipeline configuration | DevOps, Engineers |
+| [Gemini Integration](./GEMINI_INTEGRATION.md) | AI integration guide | Developers, AI Engineers |
 
 ## Contributing to Documentation
 

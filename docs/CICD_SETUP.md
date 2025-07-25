@@ -69,6 +69,7 @@ To enable email notifications, you'll need to:
    - TypeScript compilation
    - Unit tests
    - API endpoint testing
+   - AI integration testing (Gemini/OpenAI)
    - Build verification
 
 2. **Security Analysis**
@@ -95,7 +96,8 @@ To enable email notifications, you'll need to:
 **Checks:**
 - Application health endpoints
 - Database connectivity
-- External API dependencies
+- External API dependencies (DFS Australia, Champion Data)
+- AI service connectivity (Gemini, OpenAI)
 - Performance metrics
 - Security vulnerability scanning
 
@@ -234,6 +236,100 @@ The monitoring system checks:
 - VPS firewall configuration
 - SSL/TLS encryption
 - Regular security patches
+
+## 🤖 AI Integration Testing
+
+### Automated AI Service Testing
+
+The CI/CD pipeline includes comprehensive testing for AI integrations:
+
+1. **Gemini API Connectivity**
+   ```bash
+   # Test Gemini API connection
+   npm run test:gemini-connection
+   
+   # Validate API key functionality
+   npm run test:gemini-auth
+   ```
+
+2. **OpenAI Fallback Verification**
+   ```bash
+   # Test OpenAI fallback mechanism
+   npm run test:openai-fallback
+   
+   # Verify fallback logic
+   npm run test:ai-fallback-logic
+   ```
+
+3. **AI Function Testing**
+   ```bash
+   # Test specific AI functions
+   npm run test:ai-trade-analysis
+   npm run test:ai-captain-advice
+   npm run test:ai-team-analysis
+   ```
+
+### Environment Variables for AI Testing
+
+The following environment variables should be configured for testing:
+
+```bash
+# Required for production testing
+GEMINI_API_KEY=test_gemini_key
+OPENAI_API_KEY=test_openai_key
+
+# Optional test configuration
+AI_TEST_MODE=true
+AI_TIMEOUT_MS=10000
+AI_RETRY_COUNT=3
+```
+
+### AI Service Health Checks
+
+Monitoring includes automated health checks for AI services:
+
+```yaml
+# AI service health check configuration
+ai_health_checks:
+  gemini:
+    endpoint: "/api/ai/test-gemini"
+    timeout: 30s
+    interval: 5m
+    expected_status: 200
+  
+  openai_fallback:
+    endpoint: "/api/ai/test-fallback"
+    timeout: 30s
+    interval: 5m
+    expected_status: 200
+```
+
+### AI Testing Best Practices
+
+1. **Rate Limit Awareness**
+   - Implement proper rate limiting in tests
+   - Use mock responses for unit tests
+   - Reserve API calls for integration tests
+
+2. **Fallback Testing**
+   - Test Gemini failure scenarios
+   - Verify OpenAI fallback activation
+   - Ensure graceful error handling
+
+3. **Response Validation**
+   - Validate AI response structure
+   - Check response content quality
+   - Verify error message handling
+
+### AI Test Coverage Metrics
+
+Target coverage for AI integration:
+- **API Connectivity**: 100%
+- **Fallback Logic**: 100%
+- **Error Handling**: 95%
+- **Response Validation**: 90%
+
+---
 
 ## 🛠️ Troubleshooting
 
